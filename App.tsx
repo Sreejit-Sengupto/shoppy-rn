@@ -1,16 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import { createStaticNavigation } from '@react-navigation/native';
+import { createStaticNavigation, DefaultTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
-import { useFonts } from "expo-font";
-import { Raleway_400Regular } from "@expo-google-fonts/raleway";
-import { Quicksand_400Regular } from "@expo-google-fonts/quicksand";
-
-
+import { useFonts } from 'expo-font';
+import { Raleway_400Regular } from '@expo-google-fonts/raleway';
+import { Quicksand_400Regular } from '@expo-google-fonts/quicksand';
 import './global.css';
 import HomeScreen from 'screens/home';
 import DetailScreen from 'screens/details';
-import { ActivityIndicator, View, Text } from 'react-native';
 import QueryContextProvider from 'context/query-store';
 import { SplashScreen } from 'expo-router';
 import { useEffect } from 'react';
@@ -24,14 +20,14 @@ const RootStack = createNativeStackNavigator({
     Home: {
       screen: HomeScreen,
       options: {
-        title: ""
-      }
+        title: '',
+      },
     },
     Details: {
       screen: DetailScreen,
       options: {
-        title: 'ShoppyAI'
-      }
+        title: 'ShoppyAI',
+      },
     },
   },
 });
@@ -47,7 +43,7 @@ const MyTheme = {
   },
 };
 
-SplashScreen.preventAutoHideAsync()
+SplashScreen.preventAutoHideAsync();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -67,10 +63,10 @@ export default function App() {
 
   return (
     <>
-      <StatusBar style='light' />
+      <StatusBar style="light" />
       <QueryContextProvider>
         <Navigation theme={MyTheme} />
       </QueryContextProvider>
     </>
-  )
+  );
 }
